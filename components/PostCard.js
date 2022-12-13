@@ -2,18 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsBookmark } from "react-icons/bs";
 
+const styles = {
+  wrapper: ` max-w-[26rem] h-[10rem] flex  items-center gap-6 cursor-pointer `,
+  authorContainer: `flex gap-2 items-center `,
+  authorImage: `rounded-full object-cover `,
+  postDetails: ` flex-flex-col `,
+  title: `font-bold text-[1rem]`,
+  briefing: `text-[#787878] text-[.8rem]`,
+  authorName: `font-semibold text-[.8rem]`,
+  articleDetails: `text-[#787878] text-[.7rem]  flex space-between items-center gap-3 my-2`,
+  bookmarkIcon: `ml-auto cursor-pointer`,
+};
+
 function PostCard() {
-  const styles = {
-    wrapper: ` max-w-[26rem] h-[10rem] flex  items-center gap-6 cursor-pointer `,
-    authorContainer: `flex gap-2 items-center `,
-    authorImage: `rounded-full object-cover `,
-    postDetails: ` flex-flex-col `,
-    title: `font-bold text-[1rem]`,
-    briefing: `text-[#787878] text-[.8rem]`,
-    authorName: `font-semibold text-[.8rem]`,
-    articleDetails: `text-[#787878] text-[.7rem]  flex space-between items-center gap-3 my-2`,
-    bookmarkIcon: `ml-auto cursor-pointer`,
-  };
   return (
     <Link href={`/post/1`}>
       <div className={styles.wrapper}>

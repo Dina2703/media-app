@@ -1,11 +1,13 @@
 import Image from "next/image";
+
+const styles = {
+  wrapper:
+    "h-max-[10rem] bg-[#fcc017] flex items-center justify-center border-y border-black",
+  content: "max-w-7xl flex items-center justify-between px-10 my-4",
+  accentedButton: "bg-black text-white py-2 px-4 rounded-full",
+};
+
 function Banner() {
-  const styles = {
-    wrapper:
-      "h-max-[10rem] bg-[#fcc017] flex items-center justify-center border-y border-black",
-    content: "max-w-7xl flex items-center justify-between px-10 my-4",
-    accentedButton: "bg-black text-white py-2 px-4 rounded-full",
-  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>

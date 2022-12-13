@@ -1,7 +1,11 @@
-import React from "react";
+import ReaderNav from "../../components/articles/ReaderNav";
 
 function Post() {
-  return <div>Post page</div>;
+  return (
+    <div>
+      <ReaderNav />
+    </div>
+  );
 }
 
 export default Post;

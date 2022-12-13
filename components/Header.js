@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Logo from "../static/logo.png";
 
+const styles = {
+  wrapper: "flex justify-center gap-10 p-5 bg-[#fcc017]",
+  content: "max-w-7xl flex-1 flex justify-between gap-10",
+  logoContainer: "flex items-center flex-start",
+  logo: "cursor-pointer object-contain",
+  navBanner: "cursor-pointer items-center space-x-5 hidden md:flex",
+  accentedButton: "bg-black text-white py-2 px-4 rounded-full",
+};
+
 function Header() {
-  const styles = {
-    wrapper: "flex justify-center gap-10 p-5 bg-[#fcc017]",
-    content: "max-w-7xl flex-1 flex justify-between gap-10",
-    logoContainer: "flex items-center flex-start",
-    logo: "cursor-pointer object-contain",
-    navBanner: "cursor-pointer items-center space-x-5 hidden md:flex",
-    accentedButton: "bg-black text-white py-2 px-4 rounded-full",
-  };
   return (
     <header className={styles.wrapper}>
       <div className={styles.content}>
