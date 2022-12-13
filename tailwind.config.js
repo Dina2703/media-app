@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        charterBoldItalic: ["charterBoldItalic"],
+        charterItalic: ["charterItalic"],
+      },
+    },
   },
   plugins: [],
 };
