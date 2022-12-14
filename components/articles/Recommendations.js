@@ -59,38 +59,31 @@ function Recommendations() {
 
       <div className={styles.recommendationContainer}>
         <div className={styles.title}>More from Medium</div>
-        <div className={styles.articleContainer}>
-          <div className={styles.articleContentWrapper}>
-            <div className={styles.articleContent}>
-              <div className={styles.recommendAuthContent}>
-                <div className={styles.recommendAuthorImage}>
-                  <Image
-                    src={
-                      "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
-                    }
-                    width={100}
-                    height={100}
-                  />
+        <div className={styles.articlesContainer}>
+          {recommendedPosts.map((post) => (
+            <div className={styles.articleContentWrapper} key={post.id}>
+              <div className={styles.articleContent}>
+                <div className={styles.recommendAuthContent}>
+                  <div className={styles.recommendAuthorImage}>
+                    <Image src={post.author.image} width={100} height={100} />
+                  </div>
+                  <div className={styles.recommendAuthorName}>
+                    {post.author.name}
+                  </div>
                 </div>
-                <div className={styles.recommendAuthorName}>Author Name</div>
+                <div className={styles.recommendTitle}>{post.title}</div>
               </div>
-              <div className={styles.recommendTitle}>
-                The Ultimate Javascript Course for Beginners by Clever
-                Programmer
-              </div>
-            </div>
 
-            <div className={styles.recommendThumbnailContainer}>
-              <Image
-                className={styles.recommendThumbnail}
-                src={
-                  "https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2dyYW1taW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
-                }
-                width={200}
-                height={150}
-              />
+              <div className={styles.recommendThumbnailContainer}>
+                <Image
+                  className={styles.recommendThumbnail}
+                  src={post.image}
+                  width={200}
+                  height={150}
+                />
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -98,3 +91,39 @@ function Recommendations() {
 }
 
 export default Recommendations;
+
+const recommendedPosts = [
+  {
+    id: 1,
+    title: "The Ultimate Javascript Course for Beginners by Clever Programmer",
+    image:
+      "https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2dyYW1taW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+    author: {
+      name: "Clever Programmer",
+      image:
+        "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png",
+    },
+  },
+  {
+    id: 2,
+    title: "Don’t Just LeetCode; Follow the Coding Patterns Instead",
+    image:
+      "https://images.unsplash.com/photo-1591267990532-e5bdb1b0ceb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHJlYWN0JTIwJTIwcHJvZ3JhbW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+    author: {
+      name: "Arslan Ahmad",
+      image:
+        "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+    },
+  },
+  {
+    id: 3,
+    title: "Which Database Should You Use for Your Next.js App?r",
+    image:
+      "https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJlYWN0JTIwJTIwcHJvZ3JhbW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+    author: {
+      name: "Fernando Doglio",
+      image:
+        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    },
+  },
+];
