@@ -8,11 +8,11 @@ const styles = {
 
 function Post() {
   return (
-    <div className={styles.content}>
+    <main className={styles.content}>
       <ReaderNav />
       <ArticleMain />
       <Recommendations />
-    </div>
+    </main>
   );
 }
 

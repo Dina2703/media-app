@@ -8,7 +8,7 @@ import { RiArticleLine } from "react-icons/ri";
 import { BsPencilSquare } from "react-icons/bs";
 
 const styles = {
-  wrapper: `w-[5rem] h-screen flex flex-col justify-between items-center p-[1rem] `,
+  wrapper: `w-[5rem] h-screen flex flex-col justify-between items-center p-[1rem] sticky top-0`,
   logoContainer: `cursor-pointer`,
   iconsContainer: `flex-1 flex flex-col justify-center gap-[1.4rem] text-2xl text-[#787878]`,
   divider: `border-b`,
@@ -18,7 +18,7 @@ const styles = {
 
 function ReaderNav() {
   return (
-    <div className={styles.wrapper}>
+    <aside className={styles.wrapper}>
       <Link href={"/"}>
         <div className={styles.logoContainer}>
           <Image src={Logo} height={70} />
@@ -42,7 +42,7 @@ function ReaderNav() {
           height={100}
         />
       </div>
-    </div>
+    </aside>
   );
 }
 
