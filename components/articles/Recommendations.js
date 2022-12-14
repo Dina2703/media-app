@@ -117,7 +117,7 @@ const recommendedPosts = [
   },
   {
     id: 3,
-    title: "Which Database Should You Use for Your Next.js App?r",
+    title: "Which Database Should You Use for Your Next.js App?",
     image:
       "https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJlYWN0JTIwJTIwcHJvZ3JhbW18ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
     author: {
