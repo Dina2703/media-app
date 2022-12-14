@@ -14,6 +14,8 @@ function MainArticleContainer() {
     <section className={styles.articleMainContainer}>
       <div className={styles.bannerContainer}>
         <Image
+          priority
+          alt="test-pic"
           className="object-fill h-[12rem] w-full "
           src={
             "https://www.svgheart.com/wp-content/uploads/2021/11/alphabet-letters-font-free-svg-files-SvgHeart.Com.png"

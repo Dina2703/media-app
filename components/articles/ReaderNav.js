@@ -21,7 +21,7 @@ function ReaderNav() {
     <aside className={styles.wrapper}>
       <Link href={"/"}>
         <div className={styles.logoContainer}>
-          <Image src={Logo} height={70} />
+          <Image src={Logo} height={70} alt="test-pic" />
         </div>
       </Link>
       <div className={styles.iconsContainer}>
@@ -34,12 +34,14 @@ function ReaderNav() {
       </div>
       <div className={styles.profileImageContainer}>
         <Image
+          alt="test-pic"
           className={styles.profileImage}
           src={
             "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
           }
-          width={100}
-          height={100}
+          width={"auto"}
+          height={"auto"}
+          priority
         />
       </div>
     </aside>

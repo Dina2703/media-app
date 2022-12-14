@@ -65,7 +65,12 @@ function Recommendations() {
               <div className={styles.articleContent}>
                 <div className={styles.recommendAuthContent}>
                   <div className={styles.recommendAuthorImage}>
-                    <Image src={post.author.image} width={100} height={100} />
+                    <Image
+                      src={post.author.image}
+                      width={100}
+                      height={100}
+                      alt="test-pic"
+                    />
                   </div>
                   <div className={styles.recommendAuthorName}>
                     {post.author.name}

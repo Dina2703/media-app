@@ -22,6 +22,8 @@ function Banner() {
         </div>
         <div>
           <Image
+            priority
+            alt="test-pic"
             className="hidden h-58 md:inline-flex object-contain flex-1"
             src={
               "https://www.svgheart.com/wp-content/uploads/2021/11/alphabet-letters-font-free-svg-files-SvgHeart.Com.png"

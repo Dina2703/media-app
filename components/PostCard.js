@@ -21,6 +21,7 @@ function PostCard() {
         <div className={styles.postDetails}>
           <div className={styles.authorContainer}>
             <Image
+              alt="test-pic"
               className={styles.authorImage}
               src={
                 "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
@@ -47,6 +48,7 @@ function PostCard() {
         </div>
         <div className={styles.thumnailContainer}>
           <Image
+            alt="test-pic"
             src={
               "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
             }

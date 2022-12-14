@@ -25,6 +25,7 @@ function MainHeader() {
         <div className={styles.authorContainer}>
           <div className={styles.authorProfileImageContainer}>
             <Image
+              alt="test-pic"
               className="object-cover"
               src={
                 "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"

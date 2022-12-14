@@ -8,6 +8,8 @@ const styles = {
   logo: "cursor-pointer object-contain",
   navBanner: "cursor-pointer items-center space-x-5 hidden md:flex",
   accentedButton: "bg-black text-white py-2 px-4 rounded-full",
+  accentedButtonMobile:
+    "flex items-center bg-black text-sm text-white py-1 px-3 rounded-full md:hidden",
 };
 
 function Header() {
@@ -15,7 +17,14 @@ function Header() {
     <header className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logoContainer}>
-          <Image src={Logo} width={200} height={40} className={styles.logo} />
+          <Image
+            priority
+            src={Logo}
+            width={"auto"}
+            height={"auto"}
+            alt="test-pic"
+            className={styles.logo}
+          />
         </div>
         <div className={styles.navBanner}>
           <div>Our Story</div>
@@ -23,6 +32,7 @@ function Header() {
           <div>Sign In</div>
           <div className={styles.accentedButton}>Get Started</div>
         </div>
+        <div className={styles.accentedButtonMobile}>Get Started</div>
       </div>
     </header>
   );
