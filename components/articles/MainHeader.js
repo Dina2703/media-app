@@ -8,7 +8,7 @@ import { BiBookmarks } from "react-icons/bi";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 const styles = {
-  postHeaderContainer: `flex justify-between items-center mt-[2.2rem] mb-[1.2rem]`,
+  postHeaderContainer: `flex justify-between items-center mt-[1.5rem] mb-[1.2rem]`,
   authorContainer: `flex gap-[1rem] mr-[8rem]`,
   authorProfileImageContainer: `h-[3rem] w-[3rem] grid center rounded-full overflow-hidden `,
   column: `flex flex-1 flex-col justify-center`,
