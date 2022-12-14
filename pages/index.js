@@ -12,9 +12,11 @@ const styles = {
 };
 
 export default function Home() {
-  const { users } = useContext(MediumContext);
+  const { users, posts } = useContext(MediumContext);
 
   console.log(users);
+  console.log(posts);
+
   return (
     <div className={styles.wrapper}>
       <Header />

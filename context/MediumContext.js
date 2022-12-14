@@ -11,7 +11,7 @@ const MediumProvider = ({ children }) => {
   //since we need to load  users and post data after first page loading, use useEffect
 
   useEffect(() => {
-    //fetch data
+    //fetch the users's data
     const getUsers = async () => {
       const querySnapShot = await getDocs(collection(db, "users"));
       // querySnapShot.docs.map((doc) => console.log(doc.data()));
@@ -26,8 +26,25 @@ const MediumProvider = ({ children }) => {
         })
       );
     };
-
     getUsers();
+  }, []);
+
+  useEffect(() => {
+    //fetch the posts's data
+    const getPosts = async () => {
+      const querySnapShot = await getDocs(collection(db, "articles"));
+      setPosts(
+        querySnapShot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            data: {
+              ...doc.data(),
+            },
+          };
+        })
+      );
+    };
+    getPosts();
   }, []);
 
   return (
