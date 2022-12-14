@@ -1,3 +1,4 @@
+import ArticleMain from "../../components/articles/ArticleMain";
 import ReaderNav from "../../components/articles/ReaderNav";
 import Recommendations from "../../components/articles/Recommendations";
 
@@ -9,7 +10,7 @@ function Post() {
   return (
     <div className={styles.content}>
       <ReaderNav />
-      <div>main component</div>
+      <ArticleMain />
       <Recommendations />
     </div>
   );
