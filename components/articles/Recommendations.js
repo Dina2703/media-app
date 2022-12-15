@@ -85,6 +85,7 @@ function Recommendations() {
                   src={post.image}
                   width={200}
                   height={150}
+                  alt="test-pic"
                 />
               </div>
             </div>

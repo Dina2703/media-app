@@ -55,7 +55,7 @@ function PostCard({ post }) {
               )}
               &#8226;
             </span>
-            <span>{post.data.postLength} min read</span>
+            <span>7 min read</span>
             <span className="bg-[#efeaea] px-1 rounded-md">
               {post.data.category}
             </span>

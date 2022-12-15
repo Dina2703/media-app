@@ -9,7 +9,8 @@ const styles = {
   articleText: `charterItalic text-[1rem] text-[#292929]`,
 };
 
-function MainArticleContainer() {
+function MainArticleContainer({ post, author }) {
+  console.log(post);
   return (
     <section className={styles.articleMainContainer}>
       <div className={styles.bannerContainer}>
@@ -24,21 +25,22 @@ function MainArticleContainer() {
           height={500}
         />
       </div>
-      <h1 className={styles.title}>
-        The Ultimate Javascript Course for Beginners by Clever Programmer
-      </h1>
+      <h1 className={styles.title}>{post?.data?.title}</h1>
       <h4 className={styles.subtitle}>
-        <div>Author Name, June 15, 2022</div>
         <div>
-          Brief: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          {author?.data?.name}, {"  "}
+          {new Date(post?.data?.postedOn.seconds * 1000).toLocaleString(
+            "en-US",
+            {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            }
+          )}{" "}
         </div>
+        <div>{post?.data?.brief}</div>
       </h4>
-      <div className={styles.articleText}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur
-        ducimus quam labore rem aliquid soluta autem nisi et magni deserunt
-        recusandae repellat, voluptatibus facere est quia quisquam consectetur
-        voluptas obcaecati.
-      </div>
+      <div className={styles.articleText}>{post?.data?.body}</div>
     </section>
   );
 }

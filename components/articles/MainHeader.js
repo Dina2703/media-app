@@ -10,7 +10,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 const styles = {
   postHeaderContainer: `flex justify-between items-center mt-[1.5rem] mb-[1.2rem]`,
   authorContainer: `flex gap-[1rem] mr-[8rem]`,
-  authorProfileImageContainer: `h-[3rem] w-[3rem] grid center rounded-full overflow-hidden `,
+  authorProfileImageContainer: `h-[3rem] w-[3rem] rounded-full overflow-hidden flex `,
   column: `flex flex-1 flex-col justify-center`,
   postDetails: `flex gap-[.2rem] text-[#787878]`,
   listenBtn: `flex items-center gap-[.2rem] text-[#1A8917]`,
@@ -18,7 +18,7 @@ const styles = {
   space: `w-[.5rem]`,
 };
 
-function MainHeader() {
+function MainHeader({ author, post }) {
   return (
     <header>
       <div className={styles.postHeaderContainer}>
@@ -27,17 +27,24 @@ function MainHeader() {
             <Image
               alt="test-pic"
               className="object-cover"
-              src={
-                "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
-              }
+              src={author?.data?.imageUrl}
               width={100}
               height={100}
             />
           </div>
           <div className={styles.column}>
-            <p>Author Name</p>
+            <p>{author?.data?.name}</p>
             <div className={styles.postDetails}>
-              <span>June 15 &#8226; 7min read &#8226;</span>
+              <span>
+                {new Date(post?.data?.postedOn.seconds * 1000).toLocaleString(
+                  "en-US",
+                  {
+                    day: "numeric",
+                    month: "short",
+                  }
+                )}{" "}
+                &#8226; {post?.data?.postLength} min read &#8226;
+              </span>
               <span className={styles.listenBtn}>
                 <AiFillPlayCircle />
                 Listen

@@ -12,7 +12,7 @@ const styles = {
 };
 
 export default function Home() {
-  const { users, posts } = useContext(MediumContext);
+  const { posts } = useContext(MediumContext);
 
   // console.log(users);
   // console.log(posts, "🍎");

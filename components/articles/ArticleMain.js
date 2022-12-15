@@ -6,12 +6,14 @@ const styles = {
   content: ` p-[3rem] w-full `,
 };
 
-function ArticleMain() {
+function ArticleMain({ post, author }) {
+  console.log(post, "post");
+  console.log(author, "author");
   return (
     <main className={styles.wrapper}>
       <div className={styles.content}>
-        <MainHeader />
-        <MainArticleContainer />
+        <MainHeader post={post} author={author} />
+        <MainArticleContainer post={post} author={author} />
       </div>
     </main>
   );
