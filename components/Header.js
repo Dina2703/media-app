@@ -20,8 +20,8 @@ function Header() {
           <Image
             priority
             src={Logo}
-            width={"auto"}
-            height={"auto"}
+            width={400}
+            height={200}
             alt="test-pic"
             className={styles.logo}
           />

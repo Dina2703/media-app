@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BsBookmark } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const styles = {
   wrapper: ` max-w-[26rem] h-[10rem] flex  items-center gap-3 cursor-pointer  `,
@@ -16,6 +19,15 @@ const styles = {
 };
 
 function PostCard({ post }) {
+  const [authorData, setAuthorData] = useState(null);
+  // console.log(authorData);
+  useEffect(() => {
+    const getAuthorData = async () => {
+      setAuthorData((await getDoc(doc(db, "users", post.data.author))).data());
+    };
+    getAuthorData();
+  }, []);
+
   return (
     <Link href={`/post/${post.id}`}>
       <div className={styles.wrapper}>
@@ -24,13 +36,11 @@ function PostCard({ post }) {
             <Image
               alt="test-pic"
               className={styles.authorImage}
-              src={
-                "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
-              }
+              src={authorData?.imageUrl}
               width={40}
               height={40}
             />
-            <div className={styles.authorName}>Person Name</div>
+            <div className={styles.authorName}>{authorData?.name}</div>
           </div>
           <h3 className={styles.title}>{post.data.title}</h3>
           <p className={styles.briefing}>{post.data.brief}</p>
