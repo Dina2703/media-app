@@ -5,6 +5,7 @@ import Logo from "../static/logo.png";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import PostModal from "./articles/PostModal";
 
 //set Modal in Nextjs
 Modal.setAppElement("#__next");
@@ -80,7 +81,7 @@ function Header() {
         isOpen={Boolean(router.query.addNew)}
         onRequestClose={() => router.push("/")}
       >
-        <div>hi</div>
+        <PostModal />
       </Modal>
     </header>
   );
