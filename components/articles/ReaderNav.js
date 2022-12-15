@@ -39,9 +39,8 @@ function ReaderNav() {
           src={
             "https://pickaface.net/gallery/avatar/unr_randomavatar_170412_0236_9n4c2i.png"
           }
-          width={"auto"}
-          height={"auto"}
-          priority
+          width={100}
+          height={100}
         />
       </div>
     </aside>

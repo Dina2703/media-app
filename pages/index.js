@@ -14,7 +14,7 @@ const styles = {
 export default function Home() {
   const { users, posts } = useContext(MediumContext);
 
-  console.log(users);
+  // console.log(users);
   console.log(posts);
 
   return (
@@ -24,9 +24,9 @@ export default function Home() {
       <div className={styles.main}>
         <div className={styles.container}>
           <div className={styles.postList}>
-            <PostCard />
-            <PostCard />
-            <PostCard />
+            {posts.map((post) => (
+              <PostCard post={post} key={post.id} />
+            ))}
           </div>
         </div>
       </div>

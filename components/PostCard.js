@@ -3,20 +3,21 @@ import Link from "next/link";
 import { BsBookmark } from "react-icons/bs";
 
 const styles = {
-  wrapper: ` max-w-[26rem] h-[10rem] flex  items-center gap-6 cursor-pointer `,
+  wrapper: ` max-w-[26rem] h-[10rem] flex  items-center gap-3 cursor-pointer  `,
   authorContainer: `flex gap-2 items-center `,
   authorImage: `rounded-full object-cover `,
-  postDetails: ` flex-flex-col `,
+  postDetails: ` flex flex-col  flex-[2.5]`,
   title: `font-bold text-[1rem]`,
   briefing: `text-[#787878] text-[.8rem]`,
   authorName: `font-semibold text-[.8rem]`,
   articleDetails: `text-[#787878] text-[.7rem]  flex space-between items-center gap-3 my-2`,
   bookmarkIcon: `ml-auto cursor-pointer`,
+  thumnailContainer: "flex-1",
 };
 
-function PostCard() {
+function PostCard({ post }) {
   return (
-    <Link href={`/post/1`}>
+    <Link href={`/post/${post.id}`}>
       <div className={styles.wrapper}>
         <div className={styles.postDetails}>
           <div className={styles.authorContainer}>
@@ -31,16 +32,23 @@ function PostCard() {
             />
             <div className={styles.authorName}>Person Name</div>
           </div>
-          <h3 className={styles.title}>
-            7 Free Tools That Will Make You More Productive In 2022
-          </h3>
-          <p className={styles.briefing}>
-            Productivity is a skill that can be learned
-          </p>
+          <h3 className={styles.title}>{post.data.title}</h3>
+          <p className={styles.briefing}>{post.data.brief}</p>
           <div className={styles.articleDetails}>
-            <span>Jun 15 *</span>
-            <span>5 min read</span>
-            <span className="bg-[#efeaea] px-1 rounded-md">productivity</span>
+            <span>
+              {new Date(post.data.postedOn.seconds * 1000).toLocaleString(
+                "en-US",
+                {
+                  day: "numeric",
+                  month: "short",
+                }
+              )}
+              &#8226;
+            </span>
+            <span>{post.data.postLength} min read</span>
+            <span className="bg-[#efeaea] px-1 rounded-md">
+              {post.data.category}
+            </span>
             <span className={styles.bookmarkIcon}>
               <BsBookmark />
             </span>
@@ -48,12 +56,11 @@ function PostCard() {
         </div>
         <div className={styles.thumnailContainer}>
           <Image
+            className="object-cover"
             alt="test-pic"
-            src={
-              "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-            }
-            width={140}
-            height={140}
+            src={post.data.bannerImage}
+            width={200}
+            height={200}
           />
         </div>
       </div>
