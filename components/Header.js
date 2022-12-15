@@ -2,6 +2,29 @@ import Image from "next/image";
 import { useContext } from "react";
 import { MediumContext } from "../context/MediumContext";
 import Logo from "../static/logo.png";
+import Modal from "react-modal";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+//set Modal in Nextjs
+Modal.setAppElement("#__next");
+//Modal styling
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    bottom: "auto",
+    right: "auto",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#fff",
+    padding: 0,
+    border: "none",
+  },
+  overlay: {
+    backgroundColor: "rgba(10, 11, 13, 0.55)",
+  },
+};
+
 const styles = {
   wrapper: "flex justify-center gap-10 p-5 bg-[#fcc017]",
   content: "max-w-7xl flex-1 flex justify-between gap-10",
@@ -14,7 +37,10 @@ const styles = {
 };
 
 function Header() {
-  const { handleUserAuth } = useContext(MediumContext);
+  const { handleUserAuth, currentUser } = useContext(MediumContext);
+
+  const router = useRouter();
+
   return (
     <header className={styles.wrapper}>
       <div className={styles.content}>
@@ -28,14 +54,34 @@ function Header() {
             className={styles.logo}
           />
         </div>
-        <div className={styles.navBanner}>
-          <div>Our Story</div>
-          <div>Membership</div>
-          <div onClick={handleUserAuth}>Sign In</div>
-          <div className={styles.accentedButton}>Get Started</div>
-        </div>
+
+        {currentUser ? (
+          <div className={styles.navBanner}>
+            <div>Our Story</div>
+            <div>Membership</div>
+            <Link href={"/?addNew=1"}>
+              <div className={styles.accentedButton}>Write</div>
+            </Link>
+            <div className={styles.accentedButton}>Get Unlimited Access</div>
+          </div>
+        ) : (
+          <div className={styles.navBanner}>
+            <div>Our Story</div>
+            <div>Membership</div>
+            <div onClick={handleUserAuth}>Sign In</div>
+            <div className={styles.accentedButton}>Get Started</div>
+          </div>
+        )}
+
         <div className={styles.accentedButtonMobile}>Get Started</div>
       </div>
+      <Modal
+        style={customStyles}
+        isOpen={Boolean(router.query.addNew)}
+        onRequestClose={() => router.push("/")}
+      >
+        <div>hi</div>
+      </Modal>
     </header>
   );
 }
